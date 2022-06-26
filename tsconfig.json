@@ -1,0 +1,10 @@
+{
+  "compilerOptions": {
+    "lib": ["DOM"],
+    "module": "commonjs",
+    "target": "ES6",
+    "outDir": "script/"
+  },
+  "include": ["script/typescript/*.ts"],
+  "exclude": ["script/*.js"]
+}

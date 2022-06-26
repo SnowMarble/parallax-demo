@@ -1,0 +1,15 @@
+{
+  "name": "parallax-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "watch:scss": "sass --watch style/scss/style.scss style/style.css",
+    "watch:tsc": "tsc -w"
+  },
+  "devDependencies": {
+    "sass": "^1.53.0",
+    "tsc-watch": "^5.0.3",
+    "typescript": "^4.7.4"
+  }
+}

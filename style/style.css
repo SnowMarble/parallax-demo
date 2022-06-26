@@ -1,0 +1,227 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  scroll-behavior: smooth;
+  font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Apple SD Gothic Neo", "Noto Sans KR", "Malgun Gothic", sans-serif;
+  user-select: none;
+}
+
+body {
+  overflow-x: hidden;
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+body::-webkit-scrollbar {
+  display: none;
+}
+
+section {
+  position: relative;
+  width: 100vw;
+  height: 100vh;
+}
+section::before {
+  content: "";
+  position: absolute;
+  top: -150px;
+  height: 150px;
+  width: 100%;
+  z-index: 101;
+  background: linear-gradient(to top, #1d202b, transparent);
+}
+
+h1 {
+  text-transform: uppercase;
+}
+
+p {
+  font-weight: 300;
+}
+
+img {
+  max-width: 100%;
+}
+
+table {
+  border-collapse: collapse;
+  border: none;
+}
+table td,
+table th {
+  border: 1px solid white;
+  padding: 10px;
+  font-size: 20px;
+  text-align: center;
+}
+table td:first-child,
+table th:first-child {
+  border-left: none;
+}
+table td:last-child,
+table th:last-child {
+  border-right: none;
+}
+table th {
+  text-transform: capitalize;
+}
+table tr:nth-child(1) > * {
+  border-top: none;
+}
+table tr:last-child > * {
+  border-bottom: none;
+}
+
+.table-title {
+  font-weight: bolder;
+  text-transform: uppercase;
+}
+
+#top-parallax .parallax-image {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+#top-parallax #image-0 {
+  background-image: url("../public/pt0.png");
+  z-index: 60;
+}
+#top-parallax #image-1 {
+  background-image: url("../public/pt1.png");
+  z-index: 50;
+}
+#top-parallax #image-2 {
+  background-image: url("../public/pt2.png");
+  z-index: 40;
+}
+#top-parallax #image-3 {
+  background-image: url("../public/pt3.png");
+  z-index: 30;
+}
+#top-parallax #image-4 {
+  background-image: url("../public/pt4.png");
+  z-index: 20;
+}
+#top-parallax #image-5 {
+  background-image: url("../public/pt5.png");
+  z-index: 10;
+}
+#top-parallax #snow {
+  background-image: url("../public/snow.png");
+  background-size: 300%;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 90;
+  opacity: 0;
+}
+#top-parallax #main-title {
+  position: absolute;
+  color: white;
+  font-size: 16vmin;
+  width: max-content;
+  text-align: center;
+  top: 25%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 11;
+}
+
+#info {
+  z-index: 100;
+  background-color: #1d202b;
+  font-size: 2em;
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+@media screen and (max-width: 900px) {
+  #info {
+    display: flex;
+    flex-direction: column-reverse;
+    justify-content: flex-end;
+    gap: 20px;
+  }
+}
+#info #wolf1 {
+  overflow: hidden;
+}
+@media screen and (min-width: 900px) {
+  #info #wolf1 {
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: -900px;
+    z-index: 2;
+    width: 1000px;
+    margin: 0 auto;
+  }
+  #info #wolf1::before {
+    content: "";
+    position: absolute;
+    height: 100px;
+    z-index: 102;
+    width: 100%;
+    bottom: 0;
+    background: linear-gradient(to top, #1d202b, transparent);
+  }
+}
+#info .description {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+@media screen and (min-width: 900px) {
+  #info .description {
+    position: absolute;
+    top: 18%;
+    left: 44%;
+    z-index: 1;
+  }
+}
+@media screen and (max-width: 900px) {
+  #info .description {
+    margin-top: 60px;
+  }
+  #info .description h1 {
+    text-align: center;
+  }
+}
+#info .description > div {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  max-width: 800px;
+  padding: 0 60px 0 70px;
+}
+#info .description > div h1 {
+  font-size: 8vmin;
+}
+#info .description > div p {
+  font-size: clamp(20px, 2.2vmin, 30px);
+}
+
+footer {
+  position: relative;
+  width: 100%;
+  height: 100px;
+  background-color: #060914;
+  z-index: 100;
+}
+footer::before {
+  content: "";
+  position: absolute;
+  top: -100px;
+  height: 100px;
+  width: 100%;
+  z-index: 102;
+  background: linear-gradient(to top, #060914, transparent);
+}
+
+/*# sourceMappingURL=style.css.map */
