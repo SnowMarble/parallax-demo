@@ -1,7 +1,7 @@
 @import url('https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css');
 
-$small: 900px;
-$infoBackgroundColor: #1d202b;
+$small: 880px;
+$medium: 1024px;
 
 *,
 *::after,
@@ -18,6 +18,7 @@ $infoBackgroundColor: #1d202b;
 
 body {
   overflow-x: hidden;
+  color: white;
 
   -ms-overflow-style: none;
   scrollbar-width: none;
@@ -30,6 +31,8 @@ section {
   position: relative;
   width: 100vw;
   height: 100vh;
+  min-height: 1000px;
+  padding-bottom: 150px;
 
   &::before {
     content: '';
@@ -38,25 +41,39 @@ section {
     height: 150px;
     width: 100%;
     z-index: 101;
-    background: linear-gradient(to top, $infoBackgroundColor, transparent);
   }
 }
 
 h1 {
   text-transform: uppercase;
+  font-size: 2em;
 }
 
 p {
   font-weight: 300;
+  line-height: 1.2;
+  font-size: 20px;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+  transition: color 0.2s;
 }
 
 img {
-  max-width: 100%;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  box-shadow: 0 0 30px 10px #373737;
+  border-radius: 6px;
 }
 
 table {
   border-collapse: collapse;
   border: none;
+  margin: 20px 0;
 
   td,
   th {
@@ -129,9 +146,31 @@ table {
     transform: translate(-50%, -50%);
     z-index: 11;
   }
+
+  nav {
+    position: fixed;
+    z-index: 500;
+    width: 100%;
+    padding: 10px 40px;
+
+    ul {
+      display: flex;
+      justify-content: flex-end;
+      list-style: none;
+      gap: 30px;
+
+      a {
+        &:hover {
+          color: #5351ad;
+        }
+      }
+    }
+  }
 }
 
 #info {
+  $infoBackgroundColor: #1d202b;
+
   z-index: 100;
   background-color: $infoBackgroundColor;
   font-size: 2em;
@@ -140,6 +179,11 @@ table {
   display: flex;
   justify-content: center;
   align-items: center;
+  padding: 0;
+
+  &::before {
+    background: linear-gradient(to top, $infoBackgroundColor, transparent);
+  }
 
   @media screen and (max-width: $small) {
     display: flex;
@@ -153,11 +197,11 @@ table {
 
     @media screen and (min-width: $small) {
       position: absolute;
-      top: 50px;
       right: 0;
       left: -900px;
       z-index: 2;
       width: 1000px;
+      max-height: 100%;
       margin: 0 auto;
 
       &::before {
@@ -179,7 +223,7 @@ table {
 
     @media screen and (min-width: $small) {
       position: absolute;
-      top: 18%;
+      top: 28%;
       left: 44%;
       z-index: 1;
     }
@@ -195,7 +239,7 @@ table {
       display: flex;
       flex-direction: column;
       gap: 30px;
-      max-width: 800px;
+      max-width: 1000px;
       padding: 0 60px 0 70px;
 
       h1 {
@@ -209,14 +253,122 @@ table {
   }
 }
 
+#diet {
+  $foodBackgroundColor: #15182c;
+
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  background-color: $foodBackgroundColor;
+  align-items: center;
+  z-index: 102;
+  gap: 50px;
+  padding-bottom: 150px;
+
+  .diet-list {
+    display: flex;
+    flex-direction: column;
+    margin-top: -20px;
+    gap: 80px;
+    width: 100%;
+    z-index: 103;
+
+    @media screen and (max-width: $small) {
+      gap: 40px;
+    }
+
+    $itemSize: clamp(150px, 27vmin, 300px);
+
+    > div {
+      justify-content: center;
+      display: flex;
+      gap: inherit;
+      z-index: 3;
+    }
+
+    .item {
+      display: flex;
+      flex-basis: 600px;
+      gap: 20px;
+
+      @media screen and (max-width: $medium) {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+
+        .description {
+          font-size: 16px !important;
+        }
+      }
+
+      > div {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+
+        .title {
+          font-size: 24px;
+          font-weight: bold;
+          text-transform: uppercase;
+        }
+
+        .description {
+          font-size: 18px;
+          line-height: 1.5;
+        }
+      }
+
+      img {
+        width: $itemSize;
+        height: $itemSize;
+        object-fit: cover;
+        box-shadow: 0 0 20px #0d0d11;
+      }
+    }
+  }
+
+  &::before {
+    background: linear-gradient(to top, $foodBackgroundColor, transparent);
+  }
+
+  > h1 {
+    font-size: 3em;
+    padding-bottom: 30px;
+  }
+
+  > p {
+    max-width: min(1000px, 100vw);
+    text-align: center;
+  }
+}
+
 footer {
   $footerBackgroundColor: #060914;
 
   position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
   height: 100px;
   background-color: $footerBackgroundColor;
-  z-index: 100;
+  z-index: 10000;
+
+  a {
+    position: relative;
+    padding: 10px;
+    &:hover {
+      color: #7e75fc;
+      &::before {
+        content: 'Github';
+        position: absolute;
+        font-size: 80%;
+        top: -20px;
+        left: 50%;
+        transform: translateX(-50%);
+      }
+    }
+  }
 
   &::before {
     content: '';
@@ -226,5 +378,106 @@ footer {
     width: 100%;
     z-index: 102;
     background: linear-gradient(to top, $footerBackgroundColor, transparent);
+  }
+}
+
+#endangered {
+  $dangerBackgroundColor: #040608;
+
+  height: 100vh;
+  padding: 0;
+  position: relative;
+
+  &::before {
+    background: linear-gradient(to top, $dangerBackgroundColor, transparent);
+  }
+  h1 {
+    z-index: 105;
+    font-size: 5vmin;
+  }
+
+  .description {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    z-index: 104;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10vh 0;
+
+    > p {
+      font-size: clamp(16px, 2.2vmin, 22px);
+      padding: 0 20px;
+      max-width: 1200px;
+      text-align: center;
+      line-height: 2;
+    }
+  }
+
+  .cause {
+    display: flex;
+    justify-content: space-around;
+    width: 100%;
+    max-width: 1100px;
+    margin: 60px 0;
+
+    .item {
+      $itemSize: clamp(100px, 27vmin, 300px);
+
+      display: flex;
+      flex-direction: column;
+      flex-basis: clamp(40px, 10vmin, 500px);
+      align-items: center;
+      gap: 20px;
+
+      > p {
+        font-size: clamp(16px, 2.2vmin, 22px);
+        text-transform: capitalize;
+        text-align: center;
+      }
+
+      > img {
+        width: $itemSize;
+        height: $itemSize;
+      }
+    }
+  }
+
+  #ESA {
+    display: flex;
+    margin-top: 50px;
+    max-width: 800px;
+    justify-content: center;
+    align-items: center;
+    gap: 30px;
+    padding: 0 20px;
+
+    img {
+      $imagesize: clamp(100px, 10vw, 150px);
+      width: $imagesize;
+      height: $imagesize;
+      box-shadow: none;
+    }
+
+    p {
+      font-size: clamp(16px, 2.2vmin, 22px);
+    }
+  }
+}
+
+#danger {
+  position: absolute;
+  filter: brightness(0.8);
+  height: 100%;
+  width: 100%;
+  z-index: 103;
+
+  background-image: url('https://englishpluspodcast.com/wp-content/uploads/2021/07/Episode-522-What-Do-You-Know-about-Wolves.jpg');
+
+  #danger1 {
+    width: 100%;
+    height: 100%;
+    position: absolute;
   }
 }

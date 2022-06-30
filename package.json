@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "scripts": {
-    "watch:scss": "sass --watch style/scss/style.scss style/style.css",
+    "watch:scss": "sass --watch --style=compressed style/scss/style.scss style/style.css",
     "watch:tsc": "tsc -w"
   },
   "devDependencies": {

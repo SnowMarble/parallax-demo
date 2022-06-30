@@ -7,10 +7,30 @@
     <link rel="stylesheet" href="style/style.css" />
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="http://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/ScrollMagic.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/animation.gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.7/plugins/debug.addIndicators.min.js"></script>
     <title></title>
   </head>
   <body>
     <section id="top-parallax">
+      <nav>
+        <ul>
+          <li>
+            <a href="#top-parallax"> Home </a>
+          </li>
+          <li>
+            <a href="#info"> Introduce </a>
+          </li>
+          <li>
+            <a href="#diet">Diet</a>
+          </li>
+          <li>
+            <a href="#endangered"> Endangered </a>
+          </li>
+        </ul>
+      </nav>
       <div class="parallax-image" id="snow"></div>
       <div class="parallax-image" id="image-1"></div>
       <div class="parallax-image" id="image-2"></div>
@@ -52,11 +72,139 @@
         </div>
       </div>
     </section>
-    <section id="info2"></section>
-    <footer></footer>
+    <section id="diet">
+      <h1 data-aos="zoom-in">Dite</h1>
+      <div class="diet-list">
+        <div>
+          <div class="item" data-aos="flip-down">
+            <img src="public/rabbit.jpg" alt="rabbit" />
+            <div>
+              <p class="title">rabbits</p>
+              <p class="description">
+                Nonetheless, wolves are not fussy eaters. Smaller-sized animals
+                that may supplement their diet include rodents, rabbits, hares,
+                insectivores and smaller carnivores
+              </p>
+            </div>
+          </div>
+          <div class="item" data-aos="flip-down" data-aos-delay="100">
+            <img src="public/deer.jpg" alt="rabbit" />
+            <div>
+              <p class="title">rabbits</p>
+              <p class="description">
+                Nonetheless, wolves are not fussy eaters. Smaller-sized animals
+                that may supplement their diet include rodents, rabbits, hares,
+                insectivores and smaller carnivores
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <div>
+          <div class="item" data-aos="flip-down">
+            <img src="public/Blueberries.jpg" alt="rabbit" />
+            <div>
+              <p class="title">rabbits</p>
+              <p class="description">
+                Nonetheless, wolves are not fussy eaters. Smaller-sized animals
+                that may supplement their diet include rodents, rabbits, hares,
+                insectivores and smaller carnivores
+              </p>
+            </div>
+          </div>
+          <div class="item" data-aos="flip-down" data-aos-delay="100">
+            <img src="public/salmon.jpg" alt="rabbit" />
+            <div>
+              <p class="title">rabbits</p>
+              <p class="description">
+                Nonetheless, wolves are not fussy eaters. Smaller-sized animals
+                that may supplement their diet include rodents, rabbits, hares,
+                insectivores and smaller carnivores
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p data-aos="fade">
+        In times of scarcity, wolves will readily eat carrion. In Eurasian areas
+        with dense human activity, many wolf populations are forced to subsist
+        largely on livestock and garbage.
+      </p>
+    </section>
+    <section id="endangered">
+      <div class="description">
+        <h1 data-aos="fade">gray wolf is endangered</h1>
+        <div class="cause">
+          <div class="item" data-aos="flip-left" data-aos-offset="200">
+            <img
+              src="https://ukraine-economy.org/wp-content/uploads/2017/05/Smart-agriculture-in-Ukraine-IT-innovations-for-sustainable-farming.jpg"
+              alt="agriculture"
+            />
+            <p>expansion of agriculture</p>
+          </div>
+          <div
+            class="item"
+            data-aos="flip-left"
+            data-aos-offset="200"
+            data-aos-delay="100"
+          >
+            <img
+              src="https://cbsnews1.cbsistatic.com/hub/i/2015/06/25/d302aa90-c1e1-4a86-acd1-49a933898a88/img0986.jpg"
+              alt="American bison"
+            />
+            <p>decimation of main prey</p>
+          </div>
+          <div
+            class="item"
+            data-aos="flip-left"
+            data-aos-offset="200"
+            data-aos-delay="200"
+          >
+            <img
+              src="https://www.pbs.org/wnet/nature/files/2008/11/610_lobo_wolf-wars.jpg"
+              alt="wolf wars"
+            />
+            <p>extermination campaigns</p>
+          </div>
+        </div>
+        <p data-aos="fade">
+          In the contiguous United States, wolf declines were caused by the
+          expansion of agriculture, the decimation of the wolf's main prey
+          species like the American bison, and extermination campaigns.
+        </p>
+        <div id="ESA" data-aos="fade" data-aos-delay="100">
+          <img
+            src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/5c/Great_Seal_of_the_United_States_%28obverse%29.svg/1024px-Great_Seal_of_the_United_States_%28obverse%29.svg.png"
+            alt="ESA"
+          />
+          <p>
+            Wolves were given protection under the Endangered Species Act (ESA)
+            of 1973, and have since returned to parts of their former range
+            thanks to both natural recolonizations
+          </p>
+        </div>
+      </div>
+      <div id="danger"></div>
+    </section>
+    <footer>
+      <p>
+        <a href="https://github.com/kraccoon-dev" target="_blank"
+          >@3indblown leaf</a
+        >
+      </p>
+    </footer>
     <script src="script/script.js"></script>
+
     <script>
       AOS.init();
+
+      const controller = new ScrollMagic.Controller();
+
+      new ScrollMagic.Scene({
+        triggerElement: '#danger',
+      })
+        .setTween('#danger', 0.5, { filter: 'brightness(.3)' })
+        .addTo(controller);
     </script>
   </body>
 </html>
