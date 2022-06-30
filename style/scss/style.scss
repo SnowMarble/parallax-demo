@@ -159,10 +159,8 @@ table {
       list-style: none;
       gap: 30px;
 
-      a {
-        &:hover {
-          color: #5351ad;
-        }
+      a:hover {
+        color: #5351ad;
       }
     }
   }
